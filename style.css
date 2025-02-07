@@ -1,0 +1,76 @@
+
+        /* Animación personalizada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Flecha animada */
+        .arrow {
+            display: inline-block;
+            margin-left: 8px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        /* Animación de bienvenida */
+        .welcome-animation {
+            animation: fadeInScale 2s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Header dinámico */
+        .header-hidden {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        /* Botón flotante para volver al inicio */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFD700;
+            color: #333;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    
