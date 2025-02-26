@@ -66,3 +66,68 @@
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Para evitar valores negativos
   });
+
+
+   // JavaScript para manejar el comportamiento de "Ver más"
+   const iconsContainer = document.getElementById('icons-container');
+   const showMoreButton = document.getElementById('show-more-btn');
+
+   // Agregar evento al botón
+   showMoreButton.addEventListener('click', () => {
+       // Obtener todos los íconos ocultos
+       const hiddenIcons = Array.from(iconsContainer.children).slice(4);
+
+       if (hiddenIcons[0].classList.contains('opacity-0')) {
+           // Mostrar los íconos ocultos con transición
+           hiddenIcons.forEach(icon => {
+               icon.classList.remove('opacity-0', 'max-h-0');
+               icon.classList.add('opacity-100', 'max-h-[10rem]');
+           });
+
+           // Cambiar el texto del botón a "Ver menos"
+           showMoreButton.textContent = 'Ver menos';
+       } else {
+           // Ocultar los íconos adicionales nuevamente con transición
+           hiddenIcons.forEach(icon => {
+               icon.classList.remove('opacity-100', 'max-h-[10rem]');
+               icon.classList.add('opacity-0', 'max-h-0');
+           });
+
+           // Cambiar el texto del botón a "Ver más"
+           showMoreButton.textContent = 'Ver más';
+       }
+   });
+
+   const swiper = new Swiper('.projects-carousel', {
+    // Responsive breakpoints
+    breakpoints: {
+        // Móviles (0px y más)
+        0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+        },
+        // Tablets (640px y más)
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        // Escritorios (1024px y más)
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+    },
+    // Paginación
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    // Navegación
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    // Efecto de deslizamiento
+    loop: true,
+    grabCursor: true,
+});

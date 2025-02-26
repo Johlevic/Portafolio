@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-700 text-white font-sans">
     <!-- Header -->
@@ -79,10 +84,10 @@
         <section  class="border-l-8  border-yellow-400 bg-gray-200 py-12 px-5 md:mt-[12vh] mt-[37vh] lg:mt-[30vh] text-center fade-in active welcome-animation">
             
             
-            <p class="mt-4 text-2xl text-indigo-700  font-extraboldleading-relaxed ">
-                Soy un <strong class="text-yellow-400">Ingeniero de Software</strong> con amplia experiencia en desarrollo web y aplicaciones empresariales. 
-                Especializado en <strong class="text-yellow-400">Laravel</strong> y <strong class="text-yellow-400">Angular</strong>, con conocimientos avanzados 
-                en el diseño, implementación y optimización de <strong class="text-yellow-400">APIs RESTful</strong>, gestión de bases de datos SQL y NoSQL, 
+            <p class="mt-4 text-2xl text-indigo-700  font-extraboldleading-relaxed " id="sobre-mi">
+                Soy un <strong class="text-orange-400">Ingeniero de Software</strong> con amplia experiencia en desarrollo web y aplicaciones empresariales. 
+                Especializado en <strong class="text-orange-400">Laravel</strong> y <strong class="text-orange-400">Angular</strong>, con conocimientos avanzados 
+                en el diseño, implementación y optimización de <strong class="text-orange-400">APIs RESTful</strong>, gestión de bases de datos SQL y NoSQL, 
                 y despliegue de entornos en contenedores con Docker.
             </p>
         </section>
@@ -101,45 +106,62 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-                    <!-- Lenguajes y Frameworks -->
                     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
                         <h4 class="text-xl font-semibold text-yellow-400 mb-4">Lenguajes y Frameworks</h4>
-                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
-                            <div class="group relative cursor-pointer">
+                        <!-- Contenedor de íconos -->
+                        <div id="icons-container" class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <!-- Íconos visibles inicialmente -->
+                            <div class="group relative cursor-pointer transition-opacity duration-300">
                                 <i class="fab fa-js-square hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">JavaScript</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-opacity duration-300">
                                 <i class="fab fa-php hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">PHP</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-opacity duration-300">
                                 <i class="fab fa-python hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Python</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-opacity duration-300">
                                 <i class="fab fa-laravel hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Laravel</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                    
+                            <!-- Íconos ocultos inicialmente -->
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
                                 <i class="fab fa-node-js hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Node.js</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
                                 <i class="fab fa-react hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">React</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
                                 <i class="fab fa-angular hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Angular</span>
                             </div>
-                            <div class="group relative cursor-pointer">
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
                                 <i class="fab fa-vuejs hover:text-yellow-400 transition"></i>
                                 <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Vue.js</span>
                             </div>
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
+                                <i class="fab fa-java hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Java</span>
+                            </div>
+                            <div class="group relative cursor-pointer transition-all duration-300 opacity-0 max-h-0 overflow-hidden">
+                                <i class="fas fa-hashtag hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">C#</span>
+                            </div>
                         </div>
+                    
+                        <!-- Botón "Ver más" -->
+                        <button id="show-more-btn" class="mt-4 px-4 py-2 bg-yellow-400 text-gray-900 font-semibold rounded-lg hover:bg-yellow-500 transition">
+                            Ver más
+                        </button>
                     </div>
-            
+                    
+                    
                     <!-- Bases de Datos -->
                     <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
                         <h4 class="text-xl font-semibold text-yellow-400 mb-4">Bases de Datos</h4>
@@ -235,38 +257,79 @@
                 </div>
             </section>
 
-    <!-- Proyectos -->
-    <section id="projects" class="py-12 px-6 bg-gradient-to-br from-indigo-900 to-purple-800 fade-in active">
-        <div class="container mx-auto">
-            <h2 class="text-3xl font-semibold text-yellow-400 text-center">Proyectos Destacados</h2>
-            <div class="grid md:grid-cols-3 gap-6 mt-6">
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Proyecto E-commerce" class="w-full rounded-md mb-4">
-                    <h3 class="text-xl font-semibold text-yellow-400">E-commerce</h3>
-                    <p class="text-gray-300">Desarrollo de una plataforma de ventas online con Laravel y Angular.</p>
-                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
-                        Ver más <span class="arrow">&rarr;</span>
-                    </a>
+                <!-- Proyectos -->
+            <section id="projects" class="py-12 px-6 bg-gradient-to-br from-indigo-900 to-purple-800 fade-in active">
+                <div class="container mx-auto">
+                    <h2 class="text-3xl font-semibold text-yellow-400 text-center mb-8">Proyectos Destacados</h2>
+
+                    <!-- Carrusel de proyectos -->
+                    <div class="swiper projects-carousel">
+                        <div class="swiper-wrapper">
+                            <!-- Proyecto 1 -->
+                            <div class="swiper-slide">
+                                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Proyecto E-commerce" class="w-full rounded-md mb-4">
+                                    <h3 class="text-xl font-semibold text-yellow-400">E-commerce</h3>
+                                    <p class="text-gray-300">Desarrollo de una plataforma de ventas online con Laravel y Angular.</p>
+                                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
+                                        Ver más <span class="arrow">&rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 2 -->
+                            <div class="swiper-slide">
+                                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Gestor de Tareas" class="w-full rounded-md mb-4">
+                                    <h3 class="text-xl font-semibold text-yellow-400">Gestor de Tareas</h3>
+                                    <p class="text-gray-300">Aplicación de productividad con autenticación y gestión de usuarios.</p>
+                                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
+                                        Ver más <span class="arrow">&rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 3 -->
+                            <div class="swiper-slide">
+                                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <img src="https://chisellabs.com/glossary/wp-content/uploads/2021/06/What-is-an-API.png" alt="API para Facturación" class="w-full rounded-md mb-4">
+                                    <h3 class="text-xl font-semibold text-yellow-400">API para Facturación</h3>
+                                    <p class="text-gray-300">Diseño e implementación de una API RESTful para gestión de facturas.</p>
+                                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
+                                        Ver más <span class="arrow">&rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 4 -->
+                            <div class="swiper-slide">
+                                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                                    <img src="https://obedalvarado.pw/img/sistema-inventario.png" alt="Sistema de Inventario" class="w-full rounded-md mb-4">
+                                    <h3 class="text-xl font-semibold text-yellow-400">Sistema de Inventario</h3>
+                                    <p class="text-gray-300">Sistema completo para la gestión de inventarios con Laravel y Vue.js.</p>
+                                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
+                                        Ver más <span class="arrow">&rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Paginación -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- Flechas de navegación -->
+                        <div class="swiper-button-prev text-yellow-400"></div>
+                        <div class="swiper-button-next text-yellow-400"></div>
+                    </div>
                 </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Gestor de Tareas" class="w-full rounded-md mb-4">
-                    <h3 class="text-xl font-semibold text-yellow-400">Gestor de Tareas</h3>
-                    <p class="text-gray-300">Aplicación de productividad con autenticación y gestión de usuarios.</p>
-                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
-                        Ver más <span class="arrow">&rarr;</span>
-                    </a>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img src="https://chisellabs.com/glossary/wp-content/uploads/2021/06/What-is-an-API.png" alt="API para Facturación" class="w-full rounded-md mb-4">
-                    <h3 class="text-xl font-semibold text-yellow-400">API para Facturación</h3>
-                    <p class="text-gray-300">Diseño e implementación de una API RESTful para gestión de facturas.</p>
-                    <a href="#" class="text-yellow-400 font-semibold block mt-2 hover:underline">
-                        Ver más <span class="arrow">&rarr;</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
+
+            <!-- Swiper CSS -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 
     <!-- Contacto -->
     <section id="contact" class="py-12 px-6 text-center bg-gradient-to-br from-indigo-700 to-purple-600 fade-in active">

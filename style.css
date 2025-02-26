@@ -74,4 +74,10 @@
             visibility: visible;
         }
         
-        
+        #sobre-mi{
+            font-family: "Playfair Display", serif;
+        }
+
+        *{
+            font-family: "Playfair Display", serif;
+        }
