@@ -38,7 +38,7 @@
             }
             100% {
                 opacity: 1;
-                transform: scale(1);
+                transform: scale(0.9);
             }
         }
 
@@ -73,4 +73,7 @@
             opacity: 1;
             visibility: visible;
         }
-    
+        
+        .about{
+            
+        }
