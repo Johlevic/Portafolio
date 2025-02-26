@@ -93,47 +93,147 @@
     
 
     <!-- Habilidades -->
-    <section id="skills" class="py-12 px-6 bg-gradient-to-br from-indigo-800 to-purple-700 text-center fade-in active">
-        <h3 class="text-2xl text-yellow-400 font-semibold">Habilidades y Tecnologías</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div class="bg-gray-800 p-4 rounded-lg shadow-lg border border-yellow-400">
-                    <h4 class="text-xl font-semibold text-yellow-400 mb-2">Lenguajes y Frameworks</h4>
-                    <ul class="text-lg leading-relaxed ">
-                        <li>✅ JavaScript, TypeScript</li>
-                        <li>✅ PHP, Python, C#</li>
-                        <li>✅ Inertia, React, Angular, Laravel</li>
-                    </ul>
+            <!-- Agrega FontAwesome para los iconos -->
+       
+
+            <section id="skills" class="py-12 px-6 bg-gradient-to-br from-indigo-800 to-purple-700 text-center fade-in active">
+                <h3 class="text-3xl font-bold text-yellow-400 mb-8">Habilidades y Tecnologías</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+                    <!-- Lenguajes y Frameworks -->
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-4">Lenguajes y Frameworks</h4>
+                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-js-square hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">JavaScript</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-php hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">PHP</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-python hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Python</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-laravel hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Laravel</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-node-js hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Node.js</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-react hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">React</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-angular hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Angular</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-vuejs hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Vue.js</span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Bases de Datos -->
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-4">Bases de Datos</h4>
+                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-database hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">MySQL</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-database hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">PostgreSQL</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-fire hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Firebase</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-server hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Ofimática -->
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-4">Ofimática Avanzada</h4>
+                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <div class="group relative cursor-pointer">
+                                <i class="far fa-file-excel hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Excel</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-chart-bar hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Power BI</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-sliders-h hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Tableau</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-file-word hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Word</span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Inteligencia Artificial -->
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-4">Inteligencia Artificial</h4>
+                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-brain hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Machine Learning</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-robot hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Robótica</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-code-branch hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Deep Learning</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fas fa-chart-line hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Análisis Predictivo</span>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Entornos y Herramientas -->
+                    <div class="bg-gray-800 p-6 rounded-2xl shadow-lg border border-yellow-400 hover:shadow-2xl transition-shadow">
+                        <h4 class="text-xl font-semibold text-yellow-400 mb-4">Entornos y Herramientas</h4>
+                        <div class="grid grid-cols-4 gap-4 justify-center text-4xl text-white">
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-docker hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Docker</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-git-alt hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Git</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-github hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">GitHub</span>
+                            </div>
+                            <div class="group relative cursor-pointer">
+                                <i class="fab fa-microsoft hover:text-yellow-400 transition"></i>
+                                <span class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Azure</span>
+                            </div>
+                        </div>
+                    </div>
+            
                 </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-lg border border-yellow-400">
-                    <h4 class="text-xl font-semibold text-yellow-400 mb-2">Diseño de Interfaces</h4>
-                    <ul class="text-lg leading-relaxed">
-                        <li>✅ Java en NetBeans</li>
-                        <li>✅ React, Angular, Xamarin</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-lg border border-yellow-400">
-                    <h4 class="text-xl font-semibold text-yellow-400 mb-2">Bases de Datos</h4>
-                    <ul class="text-lg leading-relaxed">
-                        <li>✅ MySQL, PostgreSQL</li>
-                        <li>✅ Firebase (NoSQL)</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-lg border border-yellow-400">
-                    <h4 class="text-xl font-semibold text-yellow-400 mb-2">Entornos y Herramientas</h4>
-                    <ul class="text-lg leading-relaxed">
-                        <li>✅ Docker, NetBeans</li>
-                        <li>✅ Microsoft Azure</li>
-                    </ul>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg shadow-lg border border-yellow-400 col-span-1 md:col-span-2">
-                    <h4 class="text-xl font-semibold text-yellow-400 mb-2">Otras Competencias</h4>
-                    <ul class="text-lg leading-relaxed">
-                        <li>✅ Inteligencia Artificial</li>
-                        <li>✅ Ofimática Avanzada</li>
-                    </ul>
-                </div>
-            </div>
-    </section>
+            </section>
 
     <!-- Proyectos -->
     <section id="projects" class="py-12 px-6 bg-gradient-to-br from-indigo-900 to-purple-800 fade-in active">
