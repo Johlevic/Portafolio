@@ -1,182 +1,129 @@
-    // Elementos del DOM
-    const menuToggle = document.getElementById('menu-toggle');
-    const closeMenuButton = document.getElementById('close-menu');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
+// Constantes y elementos del DOM
+const DOM = {
+    menuToggle: document.getElementById('menu-toggle'),
+    closeMenuButton: document.getElementById('close-menu'),
+    sidebar: document.getElementById('sidebar'),
+    overlay: document.getElementById('overlay'),
+    menuLinks: document.querySelectorAll('.menu-link'),
+    backToTopButton: document.getElementById('back-to-top'),
+    header: document.getElementById('header'),
+    iconsContainer: document.getElementById('icons-container'),
+    showMoreButton: document.getElementById('show-more-btn'),
+    typedText: document.getElementById('typed-text'),
+    pageTransition: document.getElementById('page-transition'),
+    welcomeScreen: document.getElementById('welcome-screen'),
+    particlesCanvas: document.getElementById('particles')
+};
 
-    // Función para abrir el menú
-    function openMenu() {
-        sidebar.classList.remove('-translate-x-full');
-        overlay.classList.remove('hidden');
-        overlay.classList.add('opacity-100');
-        document.body.style.overflow = "hidden"; // Desactiva el scroll
-    }
-
-    // Función para cerrar el menú
-    function closeMenu() {
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
-        overlay.classList.remove('opacity-100');
-        document.body.style.overflow = ""; // Reactiva el scroll
-    }
-
-    // Eventos para abrir y cerrar el menú
-    menuToggle.addEventListener('click', openMenu);
-    closeMenuButton.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-
-    // Cerrar el menú al hacer clic en un enlace
-    const menuLinks = document.querySelectorAll('.menu-link');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth < 768) { // Solo en móviles
-                closeMenu();
-            }
-        });
-    });
-
-
-  // ScrollReveal para animaciones
-  document.addEventListener('DOMContentLoaded', () => {
-      ScrollReveal().reveal('.fade-in', {
-          delay: 200,
-          distance: '20px',
-          origin: 'bottom',
-          interval: 200
-      });
-  });
-
-  // Botón "Volver al inicio"
-  const backToTopButton = document.getElementById('back-to-top');
-
-  window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-          backToTopButton.classList.add('active');
-      } else {
-          backToTopButton.classList.remove('active');
-      }
-  });
-
-  backToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-      });
-  });
-
-  // Header dinámico
-  let lastScrollTop = 0;
-  const header = document.getElementById('header');
-
-  window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-      if (scrollTop > lastScrollTop) {
-          // Scroll hacia abajo
-          header.classList.add('header-hidden');
-      } else {
-          // Scroll hacia arriba
-          header.classList.remove('header-hidden');
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Para evitar valores negativos
-  });
-
-
-   // JavaScript para manejar el comportamiento de "Ver más"
-   const iconsContainer = document.getElementById('icons-container');
-   const showMoreButton = document.getElementById('show-more-btn');
-
-   // Agregar evento al botón
-   showMoreButton.addEventListener('click', () => {
-       // Obtener todos los íconos ocultos
-       const hiddenIcons = Array.from(iconsContainer.children).slice(4);
-
-       if (hiddenIcons[0].classList.contains('opacity-0')) {
-           // Mostrar los íconos ocultos con transición
-           hiddenIcons.forEach(icon => {
-               icon.classList.remove('opacity-0', 'max-h-0');
-               icon.classList.add('opacity-100', 'max-h-[10rem]');
-           });
-
-           // Cambiar el texto del botón a "Ver menos"
-           showMoreButton.textContent = 'Ver menos';
-       } else {
-           // Ocultar los íconos adicionales nuevamente con transición
-           hiddenIcons.forEach(icon => {
-               icon.classList.remove('opacity-100', 'max-h-[10rem]');
-               icon.classList.add('opacity-0', 'max-h-0');
-           });
-
-           // Cambiar el texto del botón a "Ver más"
-           showMoreButton.textContent = 'Ver más';
-       }
-   });
-
-   const swiper = new Swiper('.projects-carousel', {
-    // Responsive breakpoints
+// Configuración de Swiper
+const swiperConfig = {
     breakpoints: {
-        // Móviles (0px y más)
-        0: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-        },
-        // Tablets (640px y más)
-        640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-        },
-        // Escritorios (1024px y más)
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-        },
+        0: { slidesPerView: 1, spaceBetween: 10 },
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 30 }
     },
-    // Paginación
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    // Navegación
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    // Efecto de deslizamiento
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     loop: true,
-    grabCursor: true,
+    grabCursor: true
+};
+
+// Inicialización de Swiper
+const swiper = new Swiper('.projects-carousel', swiperConfig);
+
+// Funciones del menú
+function openMenu() {
+    DOM.sidebar.classList.remove('-translate-x-full');
+    DOM.overlay.classList.remove('hidden');
+    DOM.overlay.classList.add('opacity-100');
+    document.body.style.overflow = "hidden";
+}
+
+function closeMenu() {
+    DOM.sidebar.classList.add('-translate-x-full');
+    DOM.overlay.classList.add('hidden');
+    DOM.overlay.classList.remove('opacity-100');
+    document.body.style.overflow = "";
+}
+
+// Eventos del menú
+DOM.menuToggle.addEventListener('click', openMenu);
+DOM.closeMenuButton.addEventListener('click', closeMenu);
+DOM.overlay.addEventListener('click', closeMenu);
+
+DOM.menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth < 768) closeMenu();
+    });
 });
 
-const text = "¡Bienvenido a mi portafolio! 🚀";
-let index = 0;
+// ScrollReveal para animaciones
+document.addEventListener('DOMContentLoaded', () => {
+    ScrollReveal().reveal('.fade-in', {
+        delay: 200,
+        distance: '20px',
+        origin: 'bottom',
+        interval: 200
+    });
+});
 
-function typeEffect() {
-    if (index < text.length) {
-        document.getElementById('typed-text').textContent += text[index];
-        index++;
-        setTimeout(typeEffect, 80);
-    } else {
-        setTimeout(() => {
-            document.getElementById('page-transition').style.transition = "transform 1s ease-in-out";
-            document.getElementById('page-transition').style.transform = "scaleX(1)";
+// Botón "Volver al inicio"
+window.addEventListener('scroll', () => {
+    DOM.backToTopButton.classList.toggle('active', window.scrollY > 300);
+});
+
+DOM.backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Header dinámico
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    DOM.header.classList.toggle('header-hidden', scrollTop > lastScrollTop);
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
+// Comportamiento de "Ver más"
+DOM.showMoreButton.addEventListener('click', () => {
+    const hiddenIcons = Array.from(DOM.iconsContainer.children).slice(4);
+    const isHidden = hiddenIcons[0].classList.contains('opacity-0');
+
+    hiddenIcons.forEach(icon => {
+        icon.classList.toggle('opacity-0', !isHidden);
+        icon.classList.toggle('max-h-0', !isHidden);
+        icon.classList.toggle('opacity-100', isHidden);
+        icon.classList.toggle('max-h-[10rem]', isHidden);
+    });
+
+    DOM.showMoreButton.textContent = isHidden ? 'Ver menos' : 'Ver más';
+});
+
+// Efecto de escritura
+function typeEffect(text, element, speed = 80) {
+    let index = 0;
+    function type() {
+        if (index < text.length) {
+            element.textContent += text[index];
+            index++;
+            setTimeout(type, speed);
+        } else {
             setTimeout(() => {
-                document.getElementById('welcome-screen').style.display = "none";
-                document.getElementById('page-transition').style.transform = "scaleX(0)";
+                DOM.pageTransition.style.transition = "transform 1s ease-in-out";
+                DOM.pageTransition.style.transform = "scaleX(1)";
+                setTimeout(() => {
+                    DOM.welcomeScreen.style.display = "none";
+                    DOM.pageTransition.style.transform = "scaleX(0)";
+                }, 1000);
             }, 1000);
-        }, 1000);
+        }
     }
+    type();
 }
 
 // Animación de partículas
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const particlesArray = [];
-
 class Particle {
-    constructor() {
+    constructor(canvas) {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
@@ -184,15 +131,14 @@ class Particle {
         this.speedY = Math.random() * 2 - 1;
     }
 
-    update() {
+    update(canvas) {
         this.x += this.speedX;
         this.y += this.speedY;
-
         if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
 
-    draw() {
+    draw(ctx) {
         ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -200,32 +146,34 @@ class Particle {
     }
 }
 
-// Crear partículas
-function initParticles() {
+function initParticles(canvas, particlesArray) {
     for (let i = 0; i < 100; i++) {
-        particlesArray.push(new Particle());
+        particlesArray.push(new Particle(canvas));
     }
 }
 
-// Animar partículas
-function animateParticles() {
+function animateParticles(canvas, ctx, particlesArray) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particlesArray.forEach(p => {
-        p.update();
-        p.draw();
+        p.update(canvas);
+        p.draw(ctx);
     });
-    requestAnimationFrame(animateParticles);
+    requestAnimationFrame(() => animateParticles(canvas, ctx, particlesArray));
 }
 
-// Redimensionar canvas
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-// Iniciar animaciones
+// Inicialización
 window.onload = () => {
-    initParticles();
-    animateParticles();
-    setTimeout(typeEffect, 1000);
+    const particlesArray = [];
+    const ctx = DOM.particlesCanvas.getContext('2d');
+    DOM.particlesCanvas.width = window.innerWidth;
+    DOM.particlesCanvas.height = window.innerHeight;
+
+    initParticles(DOM.particlesCanvas, particlesArray);
+    animateParticles(DOM.particlesCanvas, ctx, particlesArray);
+    typeEffect("¡Bienvenido a mi portafolio! 🚀", DOM.typedText);
+
+    window.addEventListener("resize", () => {
+        DOM.particlesCanvas.width = window.innerWidth;
+        DOM.particlesCanvas.height = window.innerHeight;
+    });
 };

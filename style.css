@@ -65,81 +65,85 @@
         *{
              font-family: "Playfair Display", serif;
         }
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+       /* Contenedor de bienvenida */
+.welcome-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, #141E30, #243B55);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 9999;
+    overflow: hidden;
+    animation: fadeOut 1s ease-out forwards 3s; /* Añade esta línea */
+}
 
-        /* Contenedor de bienvenida */
-        .welcome-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(to right, #141E30, #243B55);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            z-index: 9999;
-            overflow: hidden;
-        }
-        
-        /* Animación de la foto de perfil */
-        .w-32 {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #00ffff;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(-150px);
-            animation: drop 1s ease-out forwards 1s;
-        }
-        
-        /* Efecto de caída con rebote */
-        @keyframes drop {
-            0% { transform: translateY(-150px); opacity: 0; }
-            70% { transform: translateY(10px); opacity: 1; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* Texto animado */
-        .welcome-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-        }
-        
-        /* Cortina de cierre */
-        .curtain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            z-index: 10000;
-            transform: scaleY(1);
-            transform-origin: top;
-            animation: openCurtain 1s ease-in-out forwards;
-            animation-delay: 3.5s;
-        }
-        
-        /* Animación de cortina */
-        @keyframes openCurtain {
-            0% { transform: scaleY(1); }
-            100% { transform: scaleY(0); }
-        }
-        
-        /* Partículas */
-        #particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
+/* Animación de la foto de perfil */
+.w-32 {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #00ffff;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(-150px);
+    animation: drop 1s ease-out forwards 1s;
+}
+
+/* Efecto de caída con rebote */
+@keyframes drop {
+    0% { transform: translateY(-150px); opacity: 0; }
+    70% { transform: translateY(10px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Texto animado */
+.welcome-text {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Cortina de cierre */
+.curtain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 10000;
+    transform: scaleY(1);
+    transform-origin: top;
+    animation: openCurtain 1s ease-in-out forwards;
+    animation-delay: 3.5s;
+}
+
+/* Animación de cortina */
+@keyframes openCurtain {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0); }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Partículas */
+#particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
