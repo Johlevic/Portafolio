@@ -1,34 +1,39 @@
-// Menú en móvil: Mostrar y ocultar
-const menuToggle = document.getElementById('menu-toggle');
-const closeMenuButton = document.getElementById('close-menu');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
+    // Elementos del DOM
+    const menuToggle = document.getElementById('menu-toggle');
+    const closeMenuButton = document.getElementById('close-menu');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
 
-function openMenu() {
-    sidebar.classList.remove('-translate-x-full');
-    overlay.classList.remove('hidden');
-    overlay.classList.add('opacity-100');
-}
+    // Función para abrir el menú
+    function openMenu() {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('opacity-100');
+        document.body.style.overflow = "hidden"; // Desactiva el scroll
+    }
 
-function closeMenu() {
-    sidebar.classList.add('-translate-x-full');
-    overlay.classList.add('hidden');
-    overlay.classList.remove('opacity-100');
-}
+    // Función para cerrar el menú
+    function closeMenu() {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+        overlay.classList.remove('opacity-100');
+        document.body.style.overflow = ""; // Reactiva el scroll
+    }
 
-menuToggle.addEventListener('click', openMenu);
-closeMenuButton.addEventListener('click', closeMenu);
-overlay.addEventListener('click', closeMenu);
+    // Eventos para abrir y cerrar el menú
+    menuToggle.addEventListener('click', openMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
 
-// Cerrar el menú al hacer clic en un enlace
-const menuLinks = document.querySelectorAll('.menu-link');
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth < 768) { // Solo en dispositivos móviles
-            closeMenu();
-        }
+    // Cerrar el menú al hacer clic en un enlace
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth < 768) { // Solo en móviles
+                closeMenu();
+            }
+        });
     });
-});
 
 
   // ScrollReveal para animaciones
