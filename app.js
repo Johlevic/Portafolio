@@ -114,7 +114,11 @@ const swiper = new Swiper('.projects-carousel', {
     pagination: { el: '.swiper-pagination', clickable: true },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
     loop: true,
-    grabCursor: true
+    grabCursor: true,
+    autoplay: {
+        delay: 3000, // Tiempo en milisegundos entre slides (3 segundos)
+        disableOnInteraction: false, // Permite que el autoplay continúe después de interacciones del usuario
+    },
 });
 
 // Efecto de escritura en el texto de bienvenida
