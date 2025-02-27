@@ -38,7 +38,7 @@
         Jhony Lezama
       </h1>
       <address class="flex items-center gap-3 text-sm text-gray-300">
-        <img src="assets/img/perfil.jpg" alt="Logo de Code JL"
+        <img src="assets/img/logo-em.JPG" alt="Logo de Code JL"
           class="w-8 h-8 rounded-full object-cover border-2 border-blue-400 shadow-md">
         <span class="font-medium">Code JL</span>
       </address>
@@ -73,97 +73,96 @@
   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity duration-300 md:hidden z-40">
   </div>
 
-  <!-- Menú lateral en móvil -->
+<!-- Menú lateral en móvil -->
 <nav id="sidebar"
-class="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-gray-900 via-blue-700 to-indigo-800 to-blue-700 text-white transform -translate-x-full transition-transform duration-300 md:hidden z-50 shadow-lg">
+  class="fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-gray-900 via-blue-700 to-indigo-800 to-blue-700 text-white transform -translate-x-full transition-transform duration-300 md:hidden z-50 shadow-lg flex flex-col">
 
-<!-- Encabezado del Sidebar -->
-<header class="flex flex-col items-center justify-center pt-8 pb-6 space-y-4 border-b border-cyan-500">
-  <img src="assets/img/logo-em.JPG" alt="Logo de Code JL"
-    class="w-16 h-16 rounded-full object-cover border-2 border-cyan-400 shadow-md">
-  <h1
-    class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 animate-gradient-shine">
-    Jhony Lezama
-  </h1>
-  <p class="text-sm text-gray-300 font-medium">Ingeniero de Software</p>
-</header>
+  <!-- Encabezado del Sidebar -->
+  <header class="flex flex-col items-center justify-center pt-8 pb-6 space-y-4 border-b border-cyan-500">
+    <img src="assets/img/perfil.jpg" alt="Logo de Code JL"
+      class="w-16 h-16 rounded-full object-cover border-2 border-cyan-400 shadow-md">
+    <h1
+      class="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-green-400 animate-gradient-shine">
+      Jhony Lezama
+    </h1>
+    <p class="text-sm text-gray-300 font-medium">Ingeniero de Software</p>
+  </header>
 
-<!-- Botón para cerrar el menú -->
-<button id="close-menu" class="absolute top-4 right-4 text-3xl text-cyan-400 hover:text-white transition duration-300">
-  <i class="ph ph-x"></i>
-</button>
+  <!-- Botón para cerrar el menú -->
+  <button id="close-menu" class="absolute top-4 right-4 text-3xl text-cyan-400 hover:text-white transition duration-300">
+    <i class="ph ph-x"></i>
+  </button>
 
-<!-- Contenedor desplazable para los enlaces -->
-<div class="flex-grow overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-gray-800 max-h-[calc(100vh-200px)]">
-  <ul class="mt-8 px-6 space-y-4">
-    <li>
-      <a href="#about"
-        class="block py-3 px-4 rounded-lg rounded-lg border-l-4 border-cyan-400  hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Sobre mí
-      </a>
-    </li>
-    <li>
-      <a href="#skills"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Habilidades
-      </a>
-    </li>
-    <li>
-      <a href="#projects"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Proyectos
-      </a>
-    </li>
-    <li>
-      <a href="#contact"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Contacto
-      </a>
-    </li>
-    <!-- Agrega más elementos aquí si es necesario -->
-    <li>
-      <a href="#blog"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a href="#portfolio"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Portafolio
-      </a>
-    </li>
-    <li>
-      <a href="#services"
-        class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
-        Servicios
-      </a>
-    </li>
-  </ul>
-</div>
-
-<!-- Footer del Sidebar -->
-<footer class="border-t border-cyan-500 bg-gradient-to-t from-indigo-900 to-transparent p-6">
-  <div class="flex justify-between items-center">
-    <div class="flex space-x-4">
-      <a href="https://github.com/Johlevic" target="_blank"
-        class="hover:text-cyan-400 transition-colors transform hover:scale-110">
-        <i class="fab fa-github text-xl"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/jhony-lezama/" target="_blank"
-        class="hover:text-cyan-400 transition-colors transform hover:scale-110">
-        <i class="fab fa-linkedin-in text-xl"></i>
-      </a>
-      <a href="mailto:jlezamavictorio@gmail.com"
-        class="hover:text-cyan-400 transition-colors transform hover:scale-110">
-        <i class="fas fa-envelope text-xl"></i>
-      </a>
-    </div>
-    <p class="text-xs text-gray-300">&copy; 2025 Jhony JL</p>
+  <!-- Contenedor desplazable para los enlaces -->
+  <div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-gray-800">
+    <ul class="mt-8 px-6 space-y-4">
+      <li>
+        <a href="#about"
+          class="block py-3 px-4 rounded-lg rounded-lg border-l-4 border-cyan-400  hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Sobre mí
+        </a>
+      </li>
+      <li>
+        <a href="#skills"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Habilidades
+        </a>
+      </li>
+      <li>
+        <a href="#projects"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a href="#contact"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Contacto
+        </a>
+      </li>
+      <!-- Agrega más elementos aquí si es necesario -->
+      <li>
+        <a href="#blog"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a href="#portfolio"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Portafolio
+        </a>
+      </li>
+      <li>
+        <a href="#services"
+          class="block py-3 px-4 rounded-lg border-l-4 border-cyan-400 hover:bg-cyan-500 hover:border-cyan-500 transition duration-300 menu-link">
+          Servicios
+        </a>
+      </li>
+    </ul>
   </div>
-</footer>
-</nav>
 
+  <!-- Footer del Sidebar -->
+  <footer class="border-t border-cyan-500 bg-gradient-to-t from-indigo-900 to-transparent p-6">
+    <div class="flex justify-between items-center">
+      <div class="flex space-x-4">
+        <a href="https://github.com/Johlevic" target="_blank"
+          class="hover:text-cyan-400 transition-colors transform hover:scale-110">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/jhony-lezama/" target="_blank"
+          class="hover:text-cyan-400 transition-colors transform hover:scale-110">
+          <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
+        <a href="mailto:jlezamavictorio@gmail.com"
+          class="hover:text-cyan-400 transition-colors transform hover:scale-110">
+          <i class="fas fa-envelope text-xl"></i>
+        </a>
+      </div>
+      <p class="text-xs text-gray-300">&copy; 2025 Jhony JL</p>
+    </div>
+  </footer>
+</nav>
 
 
 
@@ -897,7 +896,7 @@ class="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-gray-900 via-blue-70
       <div
         class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between justify-center items-center">
         <p class="text-gray-400 mb-4 md:mb-0">
-          © 2024 Jhony Lezama. Todos los derechos reservados.
+          © 2025 Jhony Lezama. Todos los derechos reservados.
         </p>
         <div class="flex space-x-4">
           <a href="#" class="text-gray-300 hover:text-white transition-colors">Política de Privacidad</a>
