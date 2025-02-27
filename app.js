@@ -1,59 +1,47 @@
-// Constantes y elementos del DOM
-const DOM = {
-    menuToggle: document.getElementById('menu-toggle'),
-    closeMenuButton: document.getElementById('close-menu'),
-    sidebar: document.getElementById('sidebar'),
-    overlay: document.getElementById('overlay'),
-    menuLinks: document.querySelectorAll('.menu-link'),
-    backToTopButton: document.getElementById('back-to-top'),
-    header: document.getElementById('header'),
-    iconsContainer: document.getElementById('icons-container'),
-    showMoreButton: document.getElementById('show-more-btn'),
-    typedText: document.getElementById('typed-text'),
-    pageTransition: document.getElementById('page-transition'),
-    welcomeScreen: document.getElementById('welcome-screen'),
-    particlesCanvas: document.getElementById('particles')
-};
+// Elementos del DOM
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenuButton = document.getElementById('close-menu');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const menuLinks = document.querySelectorAll('.menu-link');
+const backToTopButton = document.getElementById('back-to-top');
+const header = document.getElementById('header');
+const iconsContainer = document.getElementById('icons-container');
+const showMoreButton = document.getElementById('show-more-btn');
+const quickLinksToggle = document.getElementById('toggleQuickLinks');
+const quickLinksNav = document.getElementById('quickLinksNav');
+const quickLinksIcon = document.getElementById('quickLinksIcon');
 
-// Configuración de Swiper
-const swiperConfig = {
-    breakpoints: {
-        0: { slidesPerView: 1, spaceBetween: 10 },
-        640: { slidesPerView: 2, spaceBetween: 20 },
-        1024: { slidesPerView: 3, spaceBetween: 30 }
-    },
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    loop: true,
-    grabCursor: true
-};
+// Estados
+let isQuickLinksExpanded = false;
 
-// Inicialización de Swiper
-const swiper = new Swiper('.projects-carousel', swiperConfig);
-
-// Funciones del menú
+// Función para abrir el menú
 function openMenu() {
-    DOM.sidebar.classList.remove('-translate-x-full');
-    DOM.overlay.classList.remove('hidden');
-    DOM.overlay.classList.add('opacity-100');
-    document.body.style.overflow = "hidden";
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('hidden');
+    overlay.classList.add('opacity-100');
+    document.body.style.overflow = "hidden"; // Desactiva el scroll
 }
 
+// Función para cerrar el menú
 function closeMenu() {
-    DOM.sidebar.classList.add('-translate-x-full');
-    DOM.overlay.classList.add('hidden');
-    DOM.overlay.classList.remove('opacity-100');
-    document.body.style.overflow = "";
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    overlay.classList.remove('opacity-100');
+    document.body.style.overflow = ""; // Reactiva el scroll
 }
 
-// Eventos del menú
-DOM.menuToggle.addEventListener('click', openMenu);
-DOM.closeMenuButton.addEventListener('click', closeMenu);
-DOM.overlay.addEventListener('click', closeMenu);
+// Eventos para abrir y cerrar el menú
+menuToggle.addEventListener('click', openMenu);
+closeMenuButton.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
 
-DOM.menuLinks.forEach(link => {
+// Cerrar el menú al hacer clic en un enlace (solo en móviles)
+menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth < 768) closeMenu();
+        if (window.innerWidth < 768) {
+            closeMenu();
+        }
     });
 });
 
@@ -69,61 +57,97 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Botón "Volver al inicio"
 window.addEventListener('scroll', () => {
-    DOM.backToTopButton.classList.toggle('active', window.scrollY > 300);
+    if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+    } else {
+        backToTopButton.classList.remove('active');
+    }
 });
 
-DOM.backToTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 // Header dinámico
 let lastScrollTop = 0;
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    DOM.header.classList.toggle('header-hidden', scrollTop > lastScrollTop);
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
 
-// Comportamiento de "Ver más"
-DOM.showMoreButton.addEventListener('click', () => {
-    const hiddenIcons = Array.from(DOM.iconsContainer.children).slice(4);
-    const isHidden = hiddenIcons[0].classList.contains('opacity-0');
-
-    hiddenIcons.forEach(icon => {
-        icon.classList.toggle('opacity-0', !isHidden);
-        icon.classList.toggle('max-h-0', !isHidden);
-        icon.classList.toggle('opacity-100', isHidden);
-        icon.classList.toggle('max-h-[10rem]', isHidden);
-    });
-
-    DOM.showMoreButton.textContent = isHidden ? 'Ver menos' : 'Ver más';
-});
-
-// Efecto de escritura
-function typeEffect(text, element, speed = 80) {
-    let index = 0;
-    function type() {
-        if (index < text.length) {
-            element.textContent += text[index];
-            index++;
-            setTimeout(type, speed);
-        } else {
-            setTimeout(() => {
-                DOM.pageTransition.style.transition = "transform 1s ease-in-out";
-                DOM.pageTransition.style.transform = "scaleX(1)";
-                setTimeout(() => {
-                    DOM.welcomeScreen.style.display = "none";
-                    DOM.pageTransition.style.transform = "scaleX(0)";
-                }, 1000);
-            }, 1000);
-        }
+    if (scrollTop > lastScrollTop) {
+        header.classList.add('header-hidden'); // Scroll hacia abajo
+    } else {
+        header.classList.remove('header-hidden'); // Scroll hacia arriba
     }
-    type();
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Evitar valores negativos
+});
+
+// Comportamiento de "Ver más" en íconos
+showMoreButton.addEventListener('click', () => {
+    const hiddenIcons = Array.from(iconsContainer.children).slice(4);
+
+    if (hiddenIcons[0].classList.contains('opacity-0')) {
+        hiddenIcons.forEach(icon => {
+            icon.classList.remove('opacity-0', 'max-h-0');
+            icon.classList.add('opacity-100', 'max-h-[10rem]');
+        });
+        showMoreButton.textContent = 'Ver menos';
+    } else {
+        hiddenIcons.forEach(icon => {
+            icon.classList.remove('opacity-100', 'max-h-[10rem]');
+            icon.classList.add('opacity-0', 'max-h-0');
+        });
+        showMoreButton.textContent = 'Ver más';
+    }
+});
+
+// Swiper para el carrusel de proyectos
+const swiper = new Swiper('.projects-carousel', {
+    breakpoints: {
+        0: { slidesPerView: 1, spaceBetween: 10 },
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 30 }
+    },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    loop: true,
+    grabCursor: true
+});
+
+// Efecto de escritura en el texto de bienvenida
+const text = "¡Bienvenido a mi portafolio! 🚀";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById('typed-text').textContent += text[index];
+        index++;
+        setTimeout(typeEffect, 80);
+    } else {
+        setTimeout(() => {
+            document.getElementById('page-transition').style.transition = "transform 1s ease-in-out";
+            document.getElementById('page-transition').style.transform = "scaleX(1)";
+            setTimeout(() => {
+                document.getElementById('welcome-screen').style.display = "none";
+                document.getElementById('page-transition').style.transform = "scaleX(0)";
+            }, 1000);
+        }, 1000);
+    }
 }
 
 // Animación de partículas
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particlesArray = [];
+
 class Particle {
-    constructor(canvas) {
+    constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
@@ -131,14 +155,15 @@ class Particle {
         this.speedY = Math.random() * 2 - 1;
     }
 
-    update(canvas) {
+    update() {
         this.x += this.speedX;
         this.y += this.speedY;
+
         if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
         if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
 
-    draw(ctx) {
+    draw() {
         ctx.fillStyle = "rgba(0, 255, 255, 0.7)";
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
@@ -146,34 +171,43 @@ class Particle {
     }
 }
 
-function initParticles(canvas, particlesArray) {
+function initParticles() {
     for (let i = 0; i < 100; i++) {
-        particlesArray.push(new Particle(canvas));
+        particlesArray.push(new Particle());
     }
 }
 
-function animateParticles(canvas, ctx, particlesArray) {
+function animateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     particlesArray.forEach(p => {
-        p.update(canvas);
-        p.draw(ctx);
+        p.update();
+        p.draw();
     });
-    requestAnimationFrame(() => animateParticles(canvas, ctx, particlesArray));
+    requestAnimationFrame(animateParticles);
 }
 
-// Inicialización
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Iniciar animaciones
 window.onload = () => {
-    const particlesArray = [];
-    const ctx = DOM.particlesCanvas.getContext('2d');
-    DOM.particlesCanvas.width = window.innerWidth;
-    DOM.particlesCanvas.height = window.innerHeight;
-
-    initParticles(DOM.particlesCanvas, particlesArray);
-    animateParticles(DOM.particlesCanvas, ctx, particlesArray);
-    typeEffect("¡Bienvenido a mi portafolio! 🚀", DOM.typedText);
-
-    window.addEventListener("resize", () => {
-        DOM.particlesCanvas.width = window.innerWidth;
-        DOM.particlesCanvas.height = window.innerHeight;
-    });
+    initParticles();
+    animateParticles();
+    setTimeout(typeEffect, 1000);
 };
+
+// Comportamiento de "Enlaces rápidos"
+quickLinksToggle.addEventListener('click', () => {
+    if (isQuickLinksExpanded) {
+        quickLinksNav.style.maxHeight = '0';
+        quickLinksIcon.classList.remove('fa-chevron-up');
+        quickLinksIcon.classList.add('fa-chevron-down');
+    } else {
+        quickLinksNav.style.maxHeight = quickLinksNav.scrollHeight + 'px';
+        quickLinksIcon.classList.remove('fa-chevron-down');
+        quickLinksIcon.classList.add('fa-chevron-up');
+    }
+    isQuickLinksExpanded = !isQuickLinksExpanded;
+});
