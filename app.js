@@ -1,25 +1,35 @@
-  // Menú en móvil: Mostrar y ocultar
-  const menuToggle = document.getElementById('menu-toggle');
-  const closeMenuButton = document.getElementById('close-menu');
-  const sidebar = document.getElementById('sidebar');
+// Menú en móvil: Mostrar y ocultar
+const menuToggle = document.getElementById('menu-toggle');
+const closeMenuButton = document.getElementById('close-menu');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
 
-  menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('-translate-x-full');
-  });
+function openMenu() {
+    sidebar.classList.remove('-translate-x-full');
+    overlay.classList.remove('hidden');
+    overlay.classList.add('opacity-100');
+}
 
-  closeMenuButton.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-  });
+function closeMenu() {
+    sidebar.classList.add('-translate-x-full');
+    overlay.classList.add('hidden');
+    overlay.classList.remove('opacity-100');
+}
 
-  // Cerrar el menú lateral al hacer clic en una opción (solo en móviles)
-  const menuLinks = document.querySelectorAll('.menu-link');
-  menuLinks.forEach(link => {
-      link.addEventListener('click', () => {
-          if (window.innerWidth < 768) { // Solo en dispositivos móviles
-              sidebar.classList.add('-translate-x-full');
-          }
-      });
-  });
+menuToggle.addEventListener('click', openMenu);
+closeMenuButton.addEventListener('click', closeMenu);
+overlay.addEventListener('click', closeMenu);
+
+// Cerrar el menú al hacer clic en un enlace
+const menuLinks = document.querySelectorAll('.menu-link');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth < 768) { // Solo en dispositivos móviles
+            closeMenu();
+        }
+    });
+});
+
 
   // ScrollReveal para animaciones
   document.addEventListener('DOMContentLoaded', () => {

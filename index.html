@@ -24,11 +24,12 @@
         </div>
         <!-- Menú en PC -->
         <nav class="hidden md:flex space-x-8">
-            <a href="#about" class="hover:text-yellow-400 font-extrabold transition duration-300">Sobre mí</a>
-            <a href="#skills" class="hover:text-yellow-400 font-extrabold transition duration-300">Habilidades</a>
-            <a href="#projects" class="hover:text-yellow-400 font-extrabold transition duration-300">Proyectos</a>
-            <a href="#contact" class="hover:text-yellow-400 font-extrabold transition duration-300">Contacto</a>
+            <a href="#about" class="relative font-extrabold transition duration-300 hover:text-yellow-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full">Sobre mí</a>
+            <a href="#skills" class="relative font-extrabold transition duration-300 hover:text-yellow-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full">Habilidades</a>
+            <a href="#projects" class="relative font-extrabold transition duration-300 hover:text-yellow-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full">Proyectos</a>
+            <a href="#contact" class="relative font-extrabold transition duration-300 hover:text-yellow-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full">Contacto</a>
         </nav>
+
         <!-- Icono de menú en móviles -->
         <button id="menu-toggle" class="md:hidden text-3xl text-yellow-400">
             <i class="ph ph-list"></i>
@@ -36,6 +37,8 @@
     </header>
 
     <!-- Menú lateral en móvil -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden transition-opacity duration-300 md:hidden z-40"></div>
+
     <nav id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-indigo-700 to-purple-600 text-white transform -translate-x-full transition-transform duration-300 md:hidden z-50">
         <button id="close-menu" class="text-3xl absolute top-4 right-4 text-yellow-400">
             <i class="ph ph-x"></i>
@@ -47,6 +50,8 @@
             <li><a href="#contact" class="block hover:text-yellow-400 transition duration-300 menu-link">Contacto</a></li>
         </ul>
     </nav>
+
+
 
     <section class="relative flex flex-col" >
         <!-- Imagen principal -->
